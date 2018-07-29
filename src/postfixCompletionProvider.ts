@@ -47,7 +47,7 @@ export class PostfixCompletionProvider implements vsc.CompletionItemProvider {
   }
 
   private loadCustomTemplates = () => {
-    const config = vsc.workspace.getConfiguration('postfix')
+    const config = vsc.workspace.getConfiguration('postfixGo')
     const templates = config.get('customTemplates') as ICustomTemplateDefinition[]
     if (templates) {
       this.templates.push(...templates.map(t => new CustomTemplate(t.name, t.description, t.body, t.when)))

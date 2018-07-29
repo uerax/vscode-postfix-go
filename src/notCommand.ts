@@ -2,7 +2,7 @@ import * as vsc from 'vscode'
 import * as ts from 'typescript'
 import { invertExpression } from './utils'
 
-export const NOT_COMMAND = 'complete.notTemplate'
+export const NOT_COMMAND = 'postfixGo.complete.notTemplate'
 
 export function notCommand (editor: vsc.TextEditor, position: vsc.Position, suffix: string, expressions: ts.BinaryExpression[]) {
   vsc.window.showQuickPick(expressions.map(node => ({
