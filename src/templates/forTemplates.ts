@@ -23,8 +23,8 @@ export class ForTemplate extends BaseForTemplate {
   buildCompletionItem (code: string, position: vsc.Position) {
     return CompletionItemBuilder
       .create('for', code)
-      .description('for (let i = 0; i < expr.Length; i++)')
-      .replace(`for (let \${1:i} = 0; \${1} < \${2:{{expr}}}.length; \${1}++) {\n${getIndentCharacters()}\${0}\n}`, position, true)
+      .description('for index, element := range objects')
+      .replace(`for \${1:index}, \${2:element} := range {{expr}} {\n${getIndentCharacters()}\${0}\n}`, position, true)
       .build()
   }
 
