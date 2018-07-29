@@ -26,8 +26,8 @@ export class CustomTemplate extends BaseTemplate {
       .build()
   }
 
-  canUse (node: ts.Node): boolean {
-    return node.parent && (this.conditions.length === 0 || this.conditions.some(c => this.condition(node, c)))
+  canUse (code: string): boolean {
+    return true
   }
 
   condition = (node: ts.Node, condition: string) => {

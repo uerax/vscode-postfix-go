@@ -7,13 +7,8 @@ import { getIndentCharacters } from '../utils'
 abstract class BaseForTemplate extends BaseTemplate {
   abstract buildCompletionItem (code: string, position: vsc.Position, node: ts.Node, suffix: string)
 
-  canUse (node: ts.Node): boolean {
-    return node.parent &&
-      !this.inReturnStatement(node.parent) &&
-      !this.inIfStatement(node.parent) &&
-      (this.isExpression(node.parent) ||
-        this.isCallExpression(node.parent) ||
-        this.isArrayLiteral(node.parent))
+  canUse (code: string): boolean {
+    return true
   }
 
   protected isArrayLiteral = (node: ts.Node) => node.kind === ts.SyntaxKind.ArrayLiteralExpression
@@ -26,10 +21,6 @@ export class ForTemplate extends BaseForTemplate {
       .description('for index, element := range objects')
       .replace(`for \${1:index}, \${2:element} := range {{expr}} {\n${getIndentCharacters()}\${0}\n}`, position, true)
       .build()
-  }
-
-  canUse (node: ts.Node) {
-    return super.canUse(node) && !this.isArrayLiteral(node.parent)
   }
 }
 
@@ -50,10 +41,6 @@ export class ForEachTemplate extends BaseForTemplate {
       .description('expr.forEach()')
       .replace(`{{expr}}.forEach(\${1:item} => \${2})`, position, true)
       .build()
-  }
-
-  canUse (node: ts.Node) {
-    return super.canUse(node)
   }
 }
 

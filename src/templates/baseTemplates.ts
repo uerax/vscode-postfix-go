@@ -4,7 +4,7 @@ import { IPostfixTemplate } from '../template'
 
 export abstract class BaseTemplate implements IPostfixTemplate {
   abstract buildCompletionItem (code: string, position: vsc.Position, node: ts.Node, suffix: string)
-  abstract canUse (node: ts.Node): boolean
+  abstract canUse (code: string): boolean
 
   protected isSimpleExpression = (node: ts.Node) => node.kind === ts.SyntaxKind.ExpressionStatement
   protected isPropertyAccessExpression = (node: ts.Node) => node.kind === ts.SyntaxKind.PropertyAccessExpression
@@ -32,13 +32,8 @@ export abstract class BaseTemplate implements IPostfixTemplate {
 export abstract class BaseExpressionTemplate extends BaseTemplate {
   abstract buildCompletionItem (code: string, position: vsc.Position, node: ts.Node)
 
-  canUse (node: ts.Node) {
-    return node.parent &&
-      !this.inReturnStatement(node.parent) &&
-      !this.inIfStatement(node.parent) &&
-      (this.isExpression(node.parent) ||
-        this.isUnaryExpression(node.parent) ||
-        this.isBinaryExpression(node.parent) ||
-        this.isCallExpression(node.parent))
+  canUse (code: string) {
+    // TODO: Parse code
+    return true
   }
 }
