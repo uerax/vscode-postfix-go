@@ -1,17 +1,14 @@
-import * as ts from 'typescript'
 import * as vsc from 'vscode'
 import { CompletionItemBuilder } from '../completionItemBuilder'
 import { BaseExpressionTemplate, BaseTemplate } from './baseTemplates'
 import { getIndentCharacters } from '../utils'
 
 abstract class BaseForTemplate extends BaseTemplate {
-  abstract buildCompletionItem (code: string, position: vsc.Position, node: ts.Node, suffix: string)
+  abstract buildCompletionItem (code: string, position: vsc.Position, suffix: string)
 
   canUse (code: string): boolean {
     return true
   }
-
-  protected isArrayLiteral = (node: ts.Node) => node.kind === ts.SyntaxKind.ArrayLiteralExpression
 }
 
 export class ForTemplate extends BaseForTemplate {

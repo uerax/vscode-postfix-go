@@ -1,4 +1,3 @@
-import * as ts from 'typescript'
 import * as vsc from 'vscode'
 import { CompletionItemBuilder } from '../completionItemBuilder'
 import { BaseExpressionTemplate } from './baseTemplates'
@@ -15,11 +14,8 @@ export class IfTemplate extends BaseExpressionTemplate {
 }
 
 export class ElseTemplate extends BaseExpressionTemplate {
-  buildCompletionItem (code: string, position: vsc.Position, node: ts.Node) {
+  buildCompletionItem (code: string, position: vsc.Position) {
     let replacement = '{{expr}}'
-    if (node.parent.kind === ts.SyntaxKind.BinaryExpression) {
-      replacement = `(${replacement})`
-    }
 
     return CompletionItemBuilder
       .create('else', code)

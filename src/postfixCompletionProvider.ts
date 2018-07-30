@@ -25,20 +25,12 @@ export class PostfixCompletionProvider implements vsc.CompletionItemProvider {
       return []
     }
 
-    let codePiece = line.text.substring(line.firstNonWhitespaceCharacterIndex, dotIdx)
-
-    let source = ts.createSourceFile('test.ts', codePiece, ts.ScriptTarget.ES5, true)
-    let statement = source.statements[0]
     let code = line.text.substr(line.firstNonWhitespaceCharacterIndex)
 
-    let currentNode = findNodeAtPosition(source, dotIdx - line.firstNonWhitespaceCharacterIndex - 1)
-    if (!currentNode) {
-      return []
-    }
 
     return this.templates
       .filter(t => t.canUse(code))
-      .map(t => t.buildCompletionItem(code, position, currentNode, line.text.substring(dotIdx, position.character)))
+      .map(t => t.buildCompletionItem(code, position, line.text.substring(dotIdx, position.character)))
   }
 
   resolveCompletionItem (item: vsc.CompletionItem, token: vsc.CancellationToken): vsc.ProviderResult<vsc.CompletionItem> {
@@ -71,35 +63,6 @@ export class PostfixCompletionProvider implements vsc.CompletionItemProvider {
 }
 
 export const getCurrentSuggestion = () => currentSuggestion
-
-const findNodeAtPosition = (source: ts.SourceFile, character: number) => {
-  let matchingNodes: INode[] = []
-  source.statements.forEach(visitNode)
-  let sortedNodes = _.orderBy(matchingNodes, [m => m.width, m => m.depth], ['asc', 'desc'])
-
-  return sortedNodes.length > 0 && sortedNodes[0].node
-
-  function visitNode (node: ts.Node, depth: number = 0) {
-    const start = node.getStart(source)
-    const end = node.getEnd()
-
-    if (start <= character && character < end) {
-      matchingNodes.push({
-        depth,
-        node,
-        width: end - start
-      })
-    }
-
-    node.getChildren(source).forEach(n => visitNode(n, depth + 1))
-  }
-}
-
-interface INode {
-  width: number
-  depth: number
-  node: ts.Node
-}
 
 interface ICustomTemplateDefinition {
   name: string
