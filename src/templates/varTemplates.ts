@@ -3,21 +3,34 @@ import { CompletionItemBuilder } from '../completionItemBuilder'
 import { BaseExpressionTemplate } from './baseTemplates'
 
 export class VarTemplate extends BaseExpressionTemplate {
-  constructor (private keyword: 'var' | 'let' | 'const') {
+  constructor () {
     super()
   }
 
   buildCompletionItem (code: string, position: vsc.Position) {
     return CompletionItemBuilder
-      .create(this.keyword, code)
-      .description(`${this.keyword} name = expr`)
-      .replace(this.keyword + ' ${1:name} = {{expr}}$0', position, true)
+      .create("var", code)
+      .description(`name := expr`)
+      .replace('${1:name} := {{expr}}$0', position, true)
+      .build()
+  }
+}
+
+export class ConstTemplate extends BaseExpressionTemplate {
+  constructor () {
+    super()
+  }
+
+  buildCompletionItem (code: string, position: vsc.Position) {
+    return CompletionItemBuilder
+      .create("const", code)
+      .description(`const name type = expr`)
+      .replace('const ${1:name} ${2:Type} = {{expr}}$0', position, true)
       .build()
   }
 }
 
 export const build = () => [
-  new VarTemplate('var'),
-  new VarTemplate('let'),
-  new VarTemplate('const')
+  new VarTemplate(),
+  new ConstTemplate()
 ]
