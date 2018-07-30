@@ -21,28 +21,6 @@ export class ForTemplate extends BaseForTemplate {
   }
 }
 
-export class ForOfTemplate extends BaseForTemplate {
-  buildCompletionItem (code: string, position: vsc.Position) {
-    return CompletionItemBuilder
-      .create('forof', code)
-      .description('for (let item of expr)')
-      .replace(`for (let \${1:item} of \${2:{{expr}}}) {\n${getIndentCharacters()}\${0}\n}`, position, true)
-      .build()
-  }
-}
-
-export class ForEachTemplate extends BaseForTemplate {
-  buildCompletionItem (code: string, position: vsc.Position) {
-    return CompletionItemBuilder
-      .create('foreach', code)
-      .description('expr.forEach()')
-      .replace(`{{expr}}.forEach(\${1:item} => \${2})`, position, true)
-      .build()
-  }
-}
-
 export const build = () => [
-  new ForTemplate(),
-  new ForOfTemplate(),
-  new ForEachTemplate()
+  new ForTemplate()
 ]
