@@ -2,7 +2,7 @@
 	"name": "vscode-postfix-go",
 	"displayName": "Golang postfix code completion",
 	"description": "Postfix templates for Golang",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"license": "MIT",
 	"publisher": "yokoe",
 	"engines": {
@@ -95,11 +95,11 @@
 		"tslint": "^5.10.0",
 		"tslint-config-standard": "^7.0.0",
 		"tslint-eslint-rules": "^5.3.1",
-		"vscode": "^1.1.18"
+		"vscode": "^1.1.18",
+		"typescript": "^2.8.3"
 	},
 	"dependencies": {
 		"glob": "^7.1.2",
-		"lodash": "^4.17.10",
-		"typescript": "^2.8.3"
+		"lodash": "^4.17.10"
 	}
 }

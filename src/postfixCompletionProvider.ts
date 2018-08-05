@@ -1,5 +1,4 @@
 import * as vsc from 'vscode'
-import * as ts from 'typescript'
 import * as glob from 'glob'
 import * as path from 'path'
 import * as _ from 'lodash'

@@ -1,18 +1,11 @@
 'use strict'
 import * as vsc from 'vscode'
 import { PostfixCompletionProvider } from './postfixCompletionProvider'
-import { notCommand, NOT_COMMAND } from './notCommand'
 
 let completionProvider: vsc.Disposable
 
 export function activate (context: vsc.ExtensionContext) {
   registerCompletionProvider(context)
-
-  context.subscriptions.push(vsc.commands.registerTextEditorCommand(NOT_COMMAND, (editor: vsc.TextEditor, _: vsc.TextEditorEdit, ...args: any[]) => {
-    let [position, suffix, ...expressions] = args
-
-    notCommand(editor, position, suffix, expressions)
-  }))
 
   context.subscriptions.push(vsc.workspace.onDidChangeConfiguration(() => {
     if (completionProvider) {
