@@ -4,7 +4,7 @@
 	"description": "Postfix templates for Golang",
 	"version": "0.0.5",
 	"license": "MIT",
-	"publisher": "Sota Yokoe",
+	"publisher": "yokoe",
 	"engines": {
 		"vscode": "^1.12.0"
 	},
