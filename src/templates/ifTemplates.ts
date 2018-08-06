@@ -33,8 +33,8 @@ export class IfEqualityTemplate extends BaseExpressionTemplate {
   buildCompletionItem (code: string, position: vsc.Position) {
     return CompletionItemBuilder
       .create(this.keyword, code)
-      .description(`if (expr ${this.operator} ${this.operand})`)
-      .replace(`if ({{expr}} ${this.operator} ${this.operand}) {\n${getIndentCharacters()}\${0}\n}`, position, true)
+      .description(`if expr ${this.operator} ${this.operand}`)
+      .replace(`if {{expr}} ${this.operator} ${this.operand} {\n${getIndentCharacters()}\${0}\n}`, position, true)
       .build()
   }
 }
@@ -42,6 +42,6 @@ export class IfEqualityTemplate extends BaseExpressionTemplate {
 export const build = () => [
   new IfTemplate(),
   new ElseTemplate(),
-  new IfEqualityTemplate('null', '==', null),
-  new IfEqualityTemplate('notnull', '!=', null),
+  new IfEqualityTemplate('nil', '==', "nil"),
+  new IfEqualityTemplate('notnil', '!=', "nil"),
 ]
