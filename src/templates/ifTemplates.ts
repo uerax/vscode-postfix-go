@@ -20,7 +20,7 @@ export class ElseTemplate extends BaseExpressionTemplate {
     return CompletionItemBuilder
       .create('else', code)
       .description(`if (!expr)`)
-      .replace(`if (!${replacement}) {\n${getIndentCharacters()}\${0}\n}`, position, true)
+      .replace(`if !${replacement} {\n${getIndentCharacters()}\${0}\n}`, position, true)
       .build()
   }
 }
