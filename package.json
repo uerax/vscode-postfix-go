@@ -27,13 +27,6 @@
 		"configuration": {
 			"title": "Postfix completion",
 			"properties": {
-				"postfixGo.languages": {
-					"type": "array",
-					"description": "A list of languages in which the completion will be available",
-					"default": [
-						"go"
-					]
-				},
 				"postfixGo.customTemplates": {
 					"type": "array",
 					"items": {
