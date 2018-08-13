@@ -2,6 +2,8 @@
 
 forked from https://github.com/ipatalas/vscode-postfix-ts
 
+Under development. Any suggestions are welcomed.
+
 ## Templates
 
 All available templates (`expr` means the expression on which the template is applied):
@@ -17,3 +19,7 @@ All available templates (`expr` means the expression on which the template is ap
 | **.var**          | `name := expr` |
 | **.const**          | `const name type = expr` |
 | **.append**          | `expr = append(expr, element)` |
+
+## Author
+
+Sota Yokoe [@croquette0212](https://twitter.com/croquette0212)
