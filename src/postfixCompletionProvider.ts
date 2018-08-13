@@ -26,6 +26,10 @@ export class PostfixCompletionProvider implements vsc.CompletionItemProvider {
 
     let code = line.text.substr(line.firstNonWhitespaceCharacterIndex)
 
+    const commentIndex = line.text.indexOf('//');
+    if (commentIndex >= 0 && position.character > commentIndex) {
+      return []
+    }
 
     return this.templates
       .filter(t => t.canUse(code))
