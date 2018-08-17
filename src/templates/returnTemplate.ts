@@ -7,9 +7,8 @@ export class ReturnTemplate extends BaseExpressionTemplate {
     return CompletionItemBuilder
       .create('return', code)
       .description(`return expr`)
-      .replace('return {{expr}}', position)
+      .replace(`return \${1:{{expr}}}\${0}`, position, true)
       .build()
   }
 }
-
 export const build = () => new ReturnTemplate()

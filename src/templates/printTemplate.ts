@@ -7,7 +7,7 @@ export class PrintTemplate extends BaseExpressionTemplate {
     return CompletionItemBuilder
       .create('print', code)
       .description(`fmt.Println(expr)`)
-      .replace(`fmt.Println({{expr}})`, position, true)
+      .replace(`fmt.Println(\${0:{{expr}}})`, position, true)
       .build()
   }
 }
@@ -17,7 +17,7 @@ export class PrintfTemplate extends BaseExpressionTemplate {
     return CompletionItemBuilder
       .create('printf', code)
       .description(`fmt.Printf("%+v'\\n", expr)`)
-      .replace(`fmt.Printf("%+v\\n", {{expr}})`, position, true)
+      .replace(`fmt.Printf("%+v\\n", \${0:{{expr}}})`, position, true)
       .build()
   }
 }

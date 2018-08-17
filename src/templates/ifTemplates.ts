@@ -48,7 +48,7 @@ export class IfEqualityReturnTemplate extends BaseExpressionTemplate {
     return CompletionItemBuilder
       .create(this.keyword, code)
       .description(`if expr ${this.operator} ${this.operand}`)
-      .replace(`if {{expr}} ${this.operator} ${this.operand} {\n${getIndentCharacters()}return {{expr}}\${0}\n}`, position, true)
+      .replace(`if \${0:{{expr}}} ${this.operator} ${this.operand} {\n${getIndentCharacters()}return \${0:{{expr}}}\${0}\n}`, position, true)
       .build()
   }
 }
@@ -58,6 +58,5 @@ export const build = () => [
   new ElseTemplate(),
   new IfEqualityTemplate('nil', '==', 'nil'),
   new IfEqualityTemplate('notnil', '!=', 'nil'),
-  new IfEqualityReturnTemplate('nilr', '==', 'nil'),
-  new IfEqualityReturnTemplate('must', '!=', 'nil')
+  new IfEqualityReturnTemplate('nilr', '==', 'nil')
 ]
