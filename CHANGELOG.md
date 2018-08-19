@@ -4,5 +4,7 @@
 
 - Initial release
 
-## [0.0.7] - Onwards
-- Added print,printf,error,nilr,must templates
+## [0.0.8] - 2018-08-19
+- Added `print`, `printf`, `error` templates.
+- Improved `len` template.
+
