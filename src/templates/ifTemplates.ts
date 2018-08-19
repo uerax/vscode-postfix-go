@@ -42,6 +42,6 @@ export class IfEqualityTemplate extends BaseExpressionTemplate {
 export const build = () => [
   new IfTemplate(),
   new ElseTemplate(),
-  new IfEqualityTemplate('nil', '==', "nil"),
-  new IfEqualityTemplate('notnil', '!=', "nil"),
+  new IfEqualityTemplate('nil', '==', 'nil'),
+  new IfEqualityTemplate('notnil', '!=', 'nil')
 ]

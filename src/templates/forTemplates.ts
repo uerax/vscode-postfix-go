@@ -16,7 +16,7 @@ export class ForTemplate extends BaseForTemplate {
     return CompletionItemBuilder
       .create('for', code)
       .description('for index, element := range objects')
-      .replace(`for \${1:index}, \${2:element} := range {{expr}} {\n${getIndentCharacters()}\${0}\n}`, position, true)
+      .replace(`for \${1:index}, \${2:element} := range \${3:{{expr}}} {\n${getIndentCharacters()}\${0}\n}`, position, true)
       .build()
   }
 }
