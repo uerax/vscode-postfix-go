@@ -22,6 +22,13 @@ export class CompletionItemBuilder {
     return this
   }
 
+  public deleteTextBeforeCursor = (position: vsc.Position, length: number) => {
+    this.item.additionalTextEdits = [
+      vsc.TextEdit.delete(new vsc.Range(position.translate(0, -length), position))
+    ]
+    return this
+  }
+
   public replace = (replacement: string, position: vsc.Position, useSnippets?: boolean): CompletionItemBuilder => {
     const dotIdx = this.code.lastIndexOf('.')
     const codeBeforeTheDot = this.code.substr(0, dotIdx)
