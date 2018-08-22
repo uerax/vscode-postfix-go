@@ -4,7 +4,8 @@ import { BaseExpressionTemplate } from './baseTemplates'
 
 export class LenTemplate extends BaseExpressionTemplate {
   buildCompletionItem (code: string, position: vsc.Position) {
-    let codeBeforeDot = code.substr(0, position.character - 2)
+    const dotIdx = code.lastIndexOf('.', position.character)
+    const codeBeforeDot = code.substr(0, dotIdx)
     let lastComponent = getLastComponent(codeBeforeDot)
 
     let builder = CompletionItemBuilder
