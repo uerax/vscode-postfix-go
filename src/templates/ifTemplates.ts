@@ -7,8 +7,8 @@ export class IfTemplate extends BaseExpressionTemplate {
   buildCompletionItem (code: string, position: vsc.Position) {
     return CompletionItemBuilder
       .create('if', code)
-      .description(`if (expr)`)
-      .replace(`if ({{expr}}) {\n${getIndentCharacters()}\${0}\n}`, position, true)
+      .description(`if expr`)
+      .replace(`if {{expr}} {\n${getIndentCharacters()}\${0}\n}`, position, true)
       .build()
   }
 }
