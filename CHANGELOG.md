@@ -8,3 +8,6 @@
 - Added `print`, `printf`, `error` templates.
 - Improved `len` template.
 
+## [0.0.9] - 2018-08-22
+- Fixed `len` template.
+- Improved `if` template.
