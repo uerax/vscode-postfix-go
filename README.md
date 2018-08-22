@@ -6,6 +6,8 @@
 
 Forked from [vscode-postfix-ts](https://github.com/ipatalas/vscode-postfix-ts)
 
+![feature X](images/demo.gif)
+
 Under development. Any suggestions are welcomed.
 
 ## Templates
