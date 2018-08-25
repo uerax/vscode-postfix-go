@@ -5,9 +5,13 @@
 - Initial release
 
 ## [0.0.8] - 2018-08-19
-- Added `print`, `printf`, `error` templates.
+- Added `print`, `printf` and `error` templates.
 - Improved `len` template.
 
 ## [0.0.9] - 2018-08-22
 - Fixed `len` template.
 - Improved `if` template.
+
+## [0.0.10] - 2018-08-26
+- Added `struct` and `interface` template.
+- Split `for` template into `for` and `forr`.
