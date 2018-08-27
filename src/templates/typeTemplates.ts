@@ -19,5 +19,5 @@ export class TypeTemplate extends BaseExpressionTemplate {
 
 export const build = () => [
   new TypeTemplate('struct'),
-  new TypeTemplate('interface'),
+  new TypeTemplate('interface')
 ]

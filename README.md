@@ -32,6 +32,7 @@ All available templates (`expr` means the expression on which the template is ap
 | **.error**        | `errors.New("expr")` |
 | **.struct**       | `type expr struct` |
 | **.interface**    | `type expr interface` |
+| **.switch**    | `switch expr` |
 
 ## Author
 
