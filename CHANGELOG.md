@@ -15,3 +15,8 @@
 ## [0.0.10] - 2018-08-26
 - Added `struct` and `interface` template.
 - Split `for` template into `for` and `forr`.
+
+## [0.0.11] - YYYY-MM-DD
+- Added `switch` template
+- Switched 'for` and `forr`
+- Few Typescript Linting
