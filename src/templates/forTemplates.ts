@@ -20,6 +20,15 @@ export class ForrTemplate extends BaseForTemplate {
       .build()
   }
 }
+export class ForiTemplate extends BaseForTemplate {
+  buildCompletionItem (code: string, position: vsc.Position) {
+    return CompletionItemBuilder
+      .create('fori', code)
+      .description('for i := 0; i < len(objects); i++')
+      .replace(`for i := 0; i < len({{expr}}); i++ {\n${getIndentCharacters()}\${0}\n}`, position, true)
+      .build()
+  }
+}
 export class ForTemplate extends BaseForTemplate {
   buildCompletionItem (code: string, position: vsc.Position) {
     return CompletionItemBuilder
@@ -32,5 +41,6 @@ export class ForTemplate extends BaseForTemplate {
 
 export const build = () => [
   new ForTemplate(),
-  new ForrTemplate()
+  new ForrTemplate(),
+  new ForiTemplate()
 ]
