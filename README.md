@@ -6,6 +6,8 @@
 
 Forked from [vscode-postfix-ts](https://github.com/ipatalas/vscode-postfix-ts)
 
+Forked from [vscode-postfix-go](https://github.com/yokoe/vscode-postfix-go)
+
 ![feature X](images/demo.gif)
 
 Under development. Any suggestions are welcomed.
@@ -22,6 +24,8 @@ All available templates (`expr` means the expression on which the template is ap
 | **.notnil**       | `if expr != nil` |
 | **.forr**         | `for index := range expr` |
 | **.for**          | `for index, element := range expr` |
+| **.fori**         | `for index := 0 ; index < len(expr); index++` |
+| **.forj**         | `for index := len(expr) - 1 ; index >= 0 ; index--` |
 | **.return**       | `return expr` |
 | **.var**          | `name := expr` |
 | **.const**        | `const name type = expr` |
@@ -33,10 +37,12 @@ All available templates (`expr` means the expression on which the template is ap
 | **.struct**       | `type expr struct` |
 | **.interface**    | `type expr interface` |
 | **.switch**       | `switch expr` |
+| **.func**         | `func (t *expr)` |
 
 ## Author
 
-[Sota Yokoe](https://github.com/yokoe) [(twitter)](https://twitter.com/croquette0212)
+[uerax](https://github.com/uerax)
 
 ## Contributors
-[Hamza Anis](https://github.com/HamzaAnis)
+
+[uerax](https://github.com/hentai121)

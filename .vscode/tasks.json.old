@@ -7,32 +7,29 @@
 // ${cwd}: the current working directory of the spawned process
 // A task runner that calls a custom npm script that compiles the extension.
 {
-	"version": "2.0.0",
+	"version": "0.1.0",
 	"tasks": [
 		{
-			"label": "build",
-			"type": "shell",
 			"command": "npm",
+			"taskName": "build",
 			"args": [
 				"run",
 				"build"
 			],
+			"suppressTaskName": true,
+			"isBuildCommand": true,
 			"isBackground": true,
-			"problemMatcher": "$tsc-watch",
-			"group": {
-				"_id": "build",
-				"isDefault": false
-			}
+			"isShellCommand": true,
+			"problemMatcher": "$tsc-watch"
 		},
 		{
-			"label": "pretest",
-			"type": "shell",
+			"taskName": "pretest",
 			"command": "npm",
+			"isShellCommand": true,
 			"args": [
 				"run",
 				"pretest"
-			],
-			"problemMatcher": []
+			]
 		}
 	]
 }
