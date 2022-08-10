@@ -39,9 +39,20 @@ export class IfEqualityTemplate extends BaseExpressionTemplate {
   }
 }
 
+export class ExistTemplate extends BaseExpressionTemplate {
+  buildCompletionItem (code: string, position: vsc.Position) {
+    return CompletionItemBuilder
+      .create('exist', code)
+      .description(`if v, ok := expr; !ok {}`)
+      .replace(`if v, ok := {{expr}}; !ok {\n${getIndentCharacters()}\${0}\n}`, position, true)
+      .build()
+  }
+}
+
 export const build = () => [
   new IfTemplate(),
   new ElseTemplate(),
   new IfEqualityTemplate('nil', '==', 'nil'),
-  new IfEqualityTemplate('notnil', '!=', 'nil')
+  new IfEqualityTemplate('notnil', '!=', 'nil'),
+  new ExistTemplate()
 ]

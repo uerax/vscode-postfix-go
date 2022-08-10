@@ -21,15 +21,13 @@ All available templates (`expr` means the expression on which the template is ap
 | **.if**           | `if expr` |
 | **.else**         | `if !expr` |
 | **.nil**          | `if expr == nil` |
-| **.notnil**       | `if expr != nil` |
-| **.forr**         | `for index := range expr` |
-| **.for**          | `for index, element := range expr` |
-| **.fori**         | `for index := 0 ; index < len(expr); index++` |
+| **.nnil**         | `if expr != nil` |
+| **.forr**         | `for index := range expr {}` |
+| **.for**          | `for index, element := range expr {}` |
+| **.fori**         | `for index := 0 ; index < len(expr); index++ {}` |
 | **.forj**         | `for index := len(expr) - 1 ; index >= 0 ; index--` |
 | **.return**       | `return expr` |
-| **.var**          | `name := expr` |
 | **.const**        | `const name type = expr` |
-| **.append**       | `expr = append(expr, element)` |
 | **.len**          | `len(expr)` |
 | **.print**        | `fmt.Println(expr)` |
 | **.printf**       | `fmt.Printf("%+v\n", expr)` |
@@ -38,6 +36,8 @@ All available templates (`expr` means the expression on which the template is ap
 | **.interface**    | `type expr interface` |
 | **.switch**       | `switch expr` |
 | **.func**         | `func (t *expr)` |
+| **.exist**        | `if v, ok := expr; !ok {}` |
+
 
 ## Author
 
@@ -45,4 +45,4 @@ All available templates (`expr` means the expression on which the template is ap
 
 ## Contributors
 
-[uerax](https://github.com/hentai121)
+[Wesker](https://github.com/hentai121)

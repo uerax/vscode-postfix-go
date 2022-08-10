@@ -12,4 +12,5 @@ export class AppendTemplate extends BaseExpressionTemplate {
   }
 }
 
-export const build = () => new AppendTemplate()
+// vscode golang插件原生支持
+// export const build = () => new AppendTemplate()

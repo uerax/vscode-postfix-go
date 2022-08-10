@@ -31,6 +31,7 @@ export class ConstTemplate extends BaseExpressionTemplate {
 }
 
 export const build = () => [
-  new VarTemplate(),
+  // vscode golang插件原生支持
+  // new VarTemplate(), 
   new ConstTemplate()
 ]
