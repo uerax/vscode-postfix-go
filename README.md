@@ -1,8 +1,4 @@
 # Postfix templates for Golang
-[![Version](https://vsmarketplacebadge.apphb.com/version-short/yokoe.vscode-postfix-go.svg
-)](https://marketplace.visualstudio.com/items?itemName=yokoe.vscode-postfix-go)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs/yokoe.vscode-postfix-go.svg
-)](https://marketplace.visualstudio.com/items?itemName=yokoe.vscode-postfix-go)
 
 Forked from [vscode-postfix-ts](https://github.com/ipatalas/vscode-postfix-ts)
 
