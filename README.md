@@ -1,7 +1,5 @@
 # Postfix templates for Golang
 
-Forked from [vscode-postfix-ts](https://github.com/ipatalas/vscode-postfix-ts)
-
 Forked from [vscode-postfix-go](https://github.com/yokoe/vscode-postfix-go)
 
 ![feature X](images/demo.gif)
